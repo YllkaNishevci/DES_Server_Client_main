@@ -50,3 +50,61 @@ System.out.println("************************************************************
 // Send to server
 out.writeInt(encLine.length);
 out.write(encLine);
+
+
+if (sentLine.equals("Exit")) {
+
+break;
+}
+//Get message back from server
+int length = in.readInt();
+if (length > 0) {
+//Get bytes
+System.out.println("\nServer message:");
+byte[] message = new byte[length];
+in.readFully(message, 0, message.length);
+// Decipher message
+byte[] decBytes = decipher.doFinal(message);
+decLine = new String(decBytes);
+System.out.println("************************************************************");
+System.out.println("Encrypted: " + new String(message));
+System.out.println("Key: " + key);
+System.out.println("Decrypted: " + decLine);
+System.out.println("************************************************************");
+}
+}
+catch(IOException i) {
+System.out.println(i);
+} catch (BadPaddingException e) {
+e.printStackTrace();
+} catch (IllegalBlockSizeException e) {
+e.printStackTrace();
+}
+}
+try
+{
+input.close();
+out.close();
+socket.close();
+}
+catch(IOException i)
+{
+System.out.println(i);
+}
+} catch (UnknownHostException e) {
+e.printStackTrace();
+} catch (IOException e) {
+e.printStackTrace();
+} catch (NoSuchAlgorithmException e) {
+e.printStackTrace();
+} catch (NoSuchPaddingException e) {
+e.printStackTrace();
+} catch (InvalidKeyException e) {
+e.printStackTrace();
+}
+}
+public static void main(String args[])
+{
+Client client = new Client("127.0.0.1", 5000);
+}
+}
