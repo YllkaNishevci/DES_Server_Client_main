@@ -75,6 +75,7 @@ break;
 // Server responds
 System.out.print("\nEnter response: ");
 sentLine = input.nextLine();
+                        
 // Encrypt message
 byte[] encLine = ecipher.doFinal(sentLine.getBytes());
                         
@@ -85,3 +86,33 @@ System.out.println("Encrypted: " + new String(encLine));
 System.out.println("--------------------------------------------------------------------");
                         
 
+// Send to client
+out.writeInt(encLine.length);
+out.write(encLine);
+}
+}
+                
+catch(IOException i) {
+      System.out.println(i);
+} catch (BadPaddingException e) {
+     e.printStackTrace();
+} catch (IllegalBlockSizeException e) {
+     e.printStackTrace();
+}
+}
+System.out.println("Closing connection.");
+            
+   socket.close();
+   in.close();
+} catch (IOException e) {
+     e.printStackTrace();
+} catch (NoSuchPaddingException e) {
+     e.printStackTrace();
+} catch (NoSuchAlgorithmException e) {
+     e.printStackTrace();
+} catch (InvalidKeyException e) {
+     e.printStackTrace();
+}
+}
+public static void main(String[] args) {
+       Server server = new Server(5000);
