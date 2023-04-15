@@ -86,10 +86,10 @@ System.out.println("Encrypted: " + new String(encLine));
 System.out.println("--------------------------------------------------------------------");
                         
 
-// Send to client
-out.writeInt(encLine.length);
-out.write(encLine);
-}
+      // Send to client
+       out.writeInt(encLine.length);
+       out.write(encLine);
+  }
 }
                 
 catch(IOException i) {
@@ -98,7 +98,7 @@ catch(IOException i) {
      e.printStackTrace();
 } catch (IllegalBlockSizeException e) {
      e.printStackTrace();
-}
+  }
 }
 System.out.println("Closing connection.");
             
@@ -112,7 +112,8 @@ System.out.println("Closing connection.");
      e.printStackTrace();
 } catch (InvalidKeyException e) {
      e.printStackTrace();
-}
+  }
 }
 public static void main(String[] args) {
        Server server = new Server(5000);
+}
