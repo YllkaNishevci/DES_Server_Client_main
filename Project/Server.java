@@ -62,4 +62,26 @@ public class Server {
                         byte[] decBytes = decipher.doFinal(message);
                         decLine = new String(decBytes);
 
+System.out.println("--------------------------------------------------------------------");
+System.out.println("Encrypted: " + new String(message));
+System.out.println("Key: " + key);
+System.out.println("Decrypted: " + decLine);
+System.out.println("--------------------------------------------------------------------");
+                        
+if (decLine.equals("Over")) {
+break;
+}
+                        
+// Server responds
+System.out.print("\nEnter response: ");
+sentLine = input.nextLine();
+// Encrypt message
+byte[] encLine = ecipher.doFinal(sentLine.getBytes());
+                        
+System.out.println("--------------------------------------------------------------------");
+System.out.println("Plaintext: " + sentLine);
+System.out.println("Key: " + key);
+System.out.println("Encrypted: " + new String(encLine));
+System.out.println("--------------------------------------------------------------------");
+                        
 
