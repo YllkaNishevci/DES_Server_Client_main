@@ -3,7 +3,7 @@ Perdorimi i DES per te mbeshtjellur network stream . Implementimi i nje cifti kl
 
 
 Pershkrim:
-Ky projekt permban nje program te shkruar ne gjuhen programuese Java.
+Ky projekt permban nje program te shkruar ne gjuhen programuese Java ne lidhje me lenden "Siguria e te Dhenave".
 Projekti eshte i ndertuar me baze klient-server ne te cilen klienti dhe serveri mund te shkembejne mesazhe me njeri-tjetrin. 
 Ashtu qe te sigurohen te dhenat ne menyre qe te mos mundet te manipulohet me to nga pale te treta, te dhenat qe do te dergohen nga klienti apo serveri jane te enkriptuara me ane te algorimit DES.
 Klienti dhe Serveri komunikojne me ane te Sockets.
